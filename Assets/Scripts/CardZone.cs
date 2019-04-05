@@ -6,7 +6,7 @@ public class CardZone : MonoBehaviour
 {
     public bool hasActiveObject;
     GameObject activeObject;
-    LevelManager manager;
+    public LevelManager manager;
     public void SetActiveObject(GameObject obj) {
         hasActiveObject = true; //Set so we haveActiveObject (Track to use with UI).
         //Set the new object to our current activeObject.
@@ -20,5 +20,11 @@ public class CardZone : MonoBehaviour
         GameObject.Destroy(activeObject);   //Destroy the object
         activeObject = null;    //Set our active object to null.
         hasActiveObject = false;
+    }
+    void OnCollisionEnter(Collision col) {
+        Debug.Log("Collided");
+        if(col.gameObject.tag == "Placeable"){
+            if(!hasActiveObject) SetActiveObject(col.gameObject);
+        }
     }
 }
