@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Placeable {
-    private string id;
+public class Placeable : MonoBehaviour {
+    public string id;
     public const int MAX_HEALTH = 100;
     public int currentHealth = 100;
 
