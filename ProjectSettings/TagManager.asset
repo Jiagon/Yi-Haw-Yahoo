@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemySpawn
   - PlayerObject
+  - Placeable
   layers:
   - Default
   - TransparentFX
