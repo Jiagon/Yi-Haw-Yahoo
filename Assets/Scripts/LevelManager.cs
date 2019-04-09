@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,9 +11,14 @@ public class LevelManager : MonoBehaviour
     public List<string> activeIds = new List<string>();
     public int numOfCardZones;  //How many zones we have in this level (For UI purposes)
     public int activeCardZones = 0; //Number of card zones active with an object placed in them.
+    public Text cardsLeftText;
+    public int pointsAvailable = 0;
+    public Text pointsAvailableText;
     void Start() {
         cardZones = GameObject.FindObjectsOfType<CardZone>();
         numOfCardZones = cardZones.Length;
+        cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
+        pointsAvailableText.text = pointsAvailable.ToString();
     }
 
     public void UpdateIdList(string id) {
@@ -21,6 +28,7 @@ public class LevelManager : MonoBehaviour
             }
         }
         activeIds.Add(id);
+        cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
     }
 
     public void RemoveIdFromList(string id){
@@ -29,6 +37,7 @@ public class LevelManager : MonoBehaviour
                 activeIds.Remove(id);
             }
         }
+        cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
     }
 
     public bool isIdEnabled(string id) {
@@ -38,5 +47,9 @@ public class LevelManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void LoadLevel(string levelName) {
+        SceneManager.LoadScene(levelName);
     }
 }
