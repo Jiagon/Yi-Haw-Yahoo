@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public uint health = 0;
+    public float health = 0;
     public GameObject moveTarget;
     public GameObject attackTarget;
 
@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
         if(health == 0)
             health = 20;
 
-        moveTarget = GameObject.Find("Ark Reactor");
+        moveTarget = GameObject.FindGameObjectWithTag("Player");
 
         moving = true;
 
@@ -45,6 +45,11 @@ public class EnemyScript : MonoBehaviour
     void Attack()
     {
 
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
     }
 
     private void OnCollisionEnter(Collision collision)
