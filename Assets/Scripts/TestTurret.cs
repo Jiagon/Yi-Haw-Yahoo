@@ -10,13 +10,12 @@ public class TestTurret : Placeable
     public GameObject projectile;
     public GameObject bottom;
 
-    EnemyManager eManager;
+    public EnemyManager eManager;
     List<GameObject> enemies;
     float timer;
 
     void Start()
     {
-        eManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         enemies = new List<GameObject>();
     }
 

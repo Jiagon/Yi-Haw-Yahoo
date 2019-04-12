@@ -33,6 +33,7 @@ public class CardZone : MonoBehaviour
     void OnCollisionEnter(Collision col) {
         Debug.Log(col.gameObject.GetComponent<Placeable>().id);
         if(col.gameObject.tag == "Placeable"){
+            Debug.Log("COLLIDED");
             if(!hasActiveObject) SetActiveObject(col.gameObject);
         }
     }
