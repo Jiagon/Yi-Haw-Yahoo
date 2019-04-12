@@ -4,30 +4,34 @@ using UnityEngine;
 
 public class TestTurret : Placeable
 {
-    [HideInInspector] public float damage = 50f;
-    [HideInInspector] public float nextAttack = 2f;
+    public int damage = 50;
+    public float nextAttack = 2f;
+    float radius = 15f;
     public GameObject projectile;
+    public GameObject bottom;
 
+    EnemyManager eManager;
     List<GameObject> enemies;
     float timer;
 
     void Start()
     {
+        eManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         enemies = new List<GameObject>();
     }
 
     void Update()
     {
-        if (enemies.Count > 0)
+        timer += Time.deltaTime;
+        if (timer > nextAttack)
         {
-            timer += Time.deltaTime;
-            if(timer > nextAttack)
+            timer = 0f;
+            FindCloseEnemies();
+            if (enemies.Count > 0)
             {
-                timer = 0f;
                 List<GameObject> dead = new List<GameObject>();
-                foreach(GameObject enemy in enemies)
+                foreach (GameObject enemy in enemies)
                 {
-                    Debug.Log("Health: " + enemy.GetComponent<EnemyScript>().health);
                     enemy.GetComponent<EnemyScript>().TakeDamage(damage);
                     if (enemy.GetComponent<EnemyScript>().health <= 0)
                         dead.Add(enemy);
@@ -38,14 +42,15 @@ public class TestTurret : Placeable
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void FindCloseEnemies()
     {
-        if (collision.gameObject.tag == "Enemy")
-            enemies.Add(collision.gameObject);
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (enemies.Contains(collision.gameObject))
-            enemies.Remove(collision.gameObject);
+        enemies.Clear();
+        foreach (GameObject enemy in eManager.enemies)
+        {
+            if (Vector3.Magnitude(enemy.transform.position - bottom.transform.position) < radius)
+            {
+                enemies.Add(enemy);
+            }
+        }
     }
 }

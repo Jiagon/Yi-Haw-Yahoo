@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public List<GameObject> enemies;
     public GameObject enemyPrefab;
     public uint numEnemies = 0;
 
@@ -14,6 +15,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemies = new List<GameObject>();
         GameObject[] sceneSpawns = GameObject.FindGameObjectsWithTag("EnemySpawn");
         foreach(GameObject g in sceneSpawns)
         {
@@ -45,6 +47,13 @@ public class EnemyManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, Spawns[Random.Range(0, Spawns.Count)].transform.position, Quaternion.identity);
+        enemies.Add(Instantiate(enemyPrefab, Spawns[Random.Range(0, Spawns.Count)].transform.position, Quaternion.identity));
+        enemies[enemies.Count - 1].GetComponent<EnemyScript>().eManager = this;
+    }
+
+    public void RemoveEnemy(GameObject enemy)
+    {
+        if(enemies.Contains(enemy))
+            enemies.Remove(enemy);
     }
 }

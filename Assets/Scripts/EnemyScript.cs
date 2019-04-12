@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float health = 0;
+    public int health = 0;
+    public int attack = 5;
     public GameObject moveTarget;
     public GameObject attackTarget;
+    public EnemyManager eManager;
 
     bool moving;
     float maxVelocity;
@@ -28,7 +30,10 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         if (health <= 0)
+        {
+            eManager.RemoveEnemy(this.gameObject);
             Destroy(this.gameObject);
+        }
         if (moving)
             Move();
         else
@@ -44,12 +49,16 @@ public class EnemyScript : MonoBehaviour
 
     void Attack()
     {
-
+        if(attackTarget != null)
+        {
+            attackTarget.GetComponent<Placeable>().TakeDamage(attack);
+        }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
+        // TODO: Update canvas
     }
 
     private void OnCollisionEnter(Collision collision)
