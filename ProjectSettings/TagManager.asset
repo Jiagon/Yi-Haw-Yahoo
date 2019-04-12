@@ -9,6 +9,10 @@ TagManager:
   - Placeable
   - Enemy
   - Health
+  - placedObject
+  - placementUI
+  - attackUI
+  - gameoverUI
   layers:
   - Default
   - TransparentFX
