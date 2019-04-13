@@ -75,7 +75,7 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "PlayerObject" || collision.gameObject == moveTarget)
+        if(collision.gameObject.tag == "Placeable" || collision.gameObject == moveTarget)
         {
             moving = false;
             attackTarget = collision.gameObject;

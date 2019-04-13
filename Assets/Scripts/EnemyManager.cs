@@ -23,9 +23,6 @@ public class EnemyManager : MonoBehaviour
         }
         timer = 0f;
         nextSpawn = 0f;
-
-        if (numEnemies == 0)
-            numEnemies = 10;
     }
 
     // Update is called once per frame
