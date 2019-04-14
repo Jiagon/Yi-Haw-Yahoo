@@ -9,6 +9,7 @@ TagManager:
   - placementUI
   - attackUI
   - gameoverUI
+  - mainmenuUI
   layers:
   - Default
   - TransparentFX
