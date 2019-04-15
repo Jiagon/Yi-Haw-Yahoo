@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -458,6 +458,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 1582246696372234033, guid: 15c0c60425dae6c42947579fc4da2473,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: GameScene
+      objectReference: {fileID: 0}
     - target: {fileID: 5717003588174414194, guid: 15c0c60425dae6c42947579fc4da2473,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -471,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 5717003588174414194, guid: 15c0c60425dae6c42947579fc4da2473,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: LevelManager_Working
+      value: GameScene
       objectReference: {fileID: 0}
     - target: {fileID: 5717003587344816956, guid: 15c0c60425dae6c42947579fc4da2473,
         type: 3}
@@ -486,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 5717003587344816956, guid: 15c0c60425dae6c42947579fc4da2473,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: LevelManager_Working
+      value: GameScene
       objectReference: {fileID: 0}
     - target: {fileID: 9059651123927511569, guid: 15c0c60425dae6c42947579fc4da2473,
         type: 3}

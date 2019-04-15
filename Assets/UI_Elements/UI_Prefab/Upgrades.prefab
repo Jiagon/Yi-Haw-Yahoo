@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 8009816658143574}
   m_Layer: 5
   m_Name: Upgrades
-  m_TagString: Untagged
+  m_TagString: placementUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8009816658143575
 RectTransform:
   m_ObjectHideFlags: 0

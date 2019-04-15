@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - EnemySpawn
+  - PlayerObject
   - Placeable
+  - Enemy
+  - Health
   - placedObject
   - placementUI
   - attackUI
