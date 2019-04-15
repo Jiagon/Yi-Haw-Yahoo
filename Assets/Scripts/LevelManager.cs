@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
         return false;
     }
 
-    public void LoadLevel(string levelName) {
-        SceneManager.LoadScene(levelName);
-    }
+    //public void LoadLevel(string levelName) {
+    //    SceneManager.LoadScene(levelName);
+    //}
 }
