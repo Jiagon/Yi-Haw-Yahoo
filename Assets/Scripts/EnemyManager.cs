@@ -12,6 +12,8 @@ public class EnemyManager : MonoBehaviour
     float timer;
     float nextSpawn;
 
+    PhaseManager pManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +25,15 @@ public class EnemyManager : MonoBehaviour
         }
         timer = 0f;
         nextSpawn = 0f;
+
+        pManager = this.GetComponent<PhaseManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         // While there are still enemies to place on the screen, spawn in an enemy every 1 - 3 seconds
-        if (numEnemies > 0)
+        if (pManager.GetCurrentState() == PhaseState.Attack && numEnemies > 0)
         {
             timer += Time.deltaTime;
             if (timer >= nextSpawn)

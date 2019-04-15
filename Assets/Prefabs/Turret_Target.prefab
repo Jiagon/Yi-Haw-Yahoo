@@ -162,6 +162,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2101693862987677441}
     m_Modifications:
+    - target: {fileID: 6989948788294775275, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989948788294775275, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Placeable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989948788294775275, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6989948788294775279, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -231,16 +246,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.08632
-      objectReference: {fileID: 0}
-    - target: {fileID: 6989948788294775275, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
-        type: 3}
-      propertyPath: m_Name
-      value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 6989948788294775275, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
-        type: 3}
-      propertyPath: m_TagString
-      value: Placeable
       objectReference: {fileID: 0}
     - target: {fileID: 6989948788294775272, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
         type: 3}

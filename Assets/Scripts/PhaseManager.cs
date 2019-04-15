@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[System.Serializable]
+public enum PhaseState
+{
+    Placement = 0,
+    Attack = 1,
+    GameOver = 2
+}
+
 public class PhaseManager : MonoBehaviour
 {
-    [System.Serializable]
-    public enum PhaseState {
-        Placement = 0,
-        Attack = 1,
-        GameOver = 2
-    }
+
     private PhaseState currentState;
 
     void Start(){
