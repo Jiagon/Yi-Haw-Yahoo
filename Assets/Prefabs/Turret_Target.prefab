@@ -162,6 +162,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2101693862987677441}
     m_Modifications:
+<<<<<<< HEAD
+    - target: {fileID: 6989948788294775275, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989948788294775275, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Placeable
+      objectReference: {fileID: 0}
+=======
+>>>>>>> 11f15f405d7aeb186f1291bf70e716ed74b23ebf
     - target: {fileID: 6989948788294775279, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -232,6 +245,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.08632
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
     - target: {fileID: 6989948788294775275, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
         type: 3}
       propertyPath: m_Name
@@ -242,11 +257,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Placeable
       objectReference: {fileID: 0}
+>>>>>>> 11f15f405d7aeb186f1291bf70e716ed74b23ebf
     - target: {fileID: 6989948788294775272, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
         type: 3}
       propertyPath: m_Height
       value: 3.48
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 6989948788294775273, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 023afe805e52a4831baaa6ccf8e08921, type: 2}
+=======
+>>>>>>> 11f15f405d7aeb186f1291bf70e716ed74b23ebf
     - target: {fileID: 6989948788294775277, guid: 4a2f024c1eeeb4225b9b16964be2c7eb,
         type: 3}
       propertyPath: id
