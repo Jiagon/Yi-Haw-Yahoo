@@ -40,6 +40,7 @@ public class PhaseManager : MonoBehaviour
                 ToggleGameObjects("placementUI",true);
                 ToggleGameObjects("gameoverUI",false);
                 ToggleGameObjects("attackUI",false);
+                DestroyGameObjectsWithTag("Enemy");
                 DestroyGameObjectsWithTag("placedObject");
                 for(int i = 0; i < GameObject.FindObjectsOfType<CardZone>().Length; i++) {
                     GameObject.FindObjectsOfType<CardZone>()[i].hasActiveObject = false;
