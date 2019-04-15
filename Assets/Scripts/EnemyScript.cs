@@ -28,7 +28,7 @@ public class EnemyScript : MonoBehaviour
 
         moving = true;
 
-        maxVelocity = 3.5f;
+        maxVelocity = 0.6f;
     }
 
     // Update is called once per frame
