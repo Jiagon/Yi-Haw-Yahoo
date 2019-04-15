@@ -13,20 +13,15 @@ MonoBehaviour:
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
-    vuforiaLicenseKey: AQ/Ur6L/////AAABmdoERYBJn0pzv0Nw37Uj1YB3v1O4Q/eKEcRcmooVe8+hdtnosU2yMzw7CITHEO2zD/4LTJLxspicLXMRMBz7s64xl5nJHfnuD1mpGJGsVarvZsbWkOWdR8nQhqq50oE5cMzxorBoeigZ+H7qkkiTipVa4dIWM6naMMTbPnkYdYrs5yswPrEng7kQACBNJwDytXx5E961cGrGGWWbAajteX6/YCYFCqPeJwhOgjVErsm9kKtZ1nYOq7gXTa819vGtVkUwNz/3O1A12zUfHmksrDsRKNDXAqZjXOYsADryofKwFqfyNobUGG2ZsUh2jaJChIEfUwCkSWzNR4Xy+vMgac06KOrFtoxbWqPJLbwuT5cy
-    ufoLicenseKey: QVZXcmhrbi8vLy8vQUFBQUtJMU1mK3gyWlVBeG10ZitoOUtMQkdoSkFrTGFLZjhuZXdjNXJtM0g5SEJ4SDR6OGROMmtiUkU3VklOWGQ4V2owUk1IeFFTR2FMd2QzdWVNVjZjSWR2blBIUVVkbGFHaXBQK0tybTRWNG5xaHFTaVZPL09wNllDNGt5Vkh3dExRbXRLL0NWbnFHWE9oSFlPOEZkS3ovTytXbGgrRHRoWlZINUhLZU5TNDBaOEZvNVpnWmZ5Q2pCNUpvV0VSd0IzbG1abjJoanRhaVI1bVhOeTVmT0k1b29FQk1tekhJb0l4Yms3ekxCc3QwUkVuV3NRU3Z1b00rM1Z1Mm9oMndIcTFpNmRLbHZCRll2ZHlHRGZiSGRqa283T0I3TDZHb2ppMWg1K0FSSG9WLysyMHhyb0Y2QUsvcVZINWNVWWx1Rkc2SUlFejM5WGptcE16ako0QUpmMnEvQlMvUVJEejRLdVF4ZTZPZWdsSVFHcmQ=
+    vuforiaLicenseKey: 
+    ufoLicenseKey: QVNOUkwvSC8vLy8vQUFBQUtENGorN1l2MUU4Z2l6VmljZ25icEpOamdKcE44SHU1b1VUZ05kWXByOUpUS1NlNEw5dlJuTFZ6TVlsdFJES2wvb2dpYVFUdWpDaXZWZjFiR3ExbTd0Zk10aXJwdXdaclhpc0tqaVRHdzRLMkdsMmJGVWpiQ3NqcEQ3RkdzeVI4aTEwT2xTVDQ3Wnl1WC9zWElON2s2VHA5MTlPQmorVUphZmZIUTVKVnZCVU16REZzTGZNMDdUSkJQYXl0UnNxOXhEbHBsTFlrQVVjcXpNOFkzZDdmVlNYZXFzNUI2am1oYzBSWmszUklFM0tWZXRSZnBPQlE4UHQ1MlUzaGxHL0trcDVnZUNZNlVJQ1VYcnhMelIwNi8wU1I2eUJSM0FFTDNtNVdHTDZqamc4Nmd5Z3JwUmdwZUdKQUM4WmJIMUJ1dHlleTljWi9pSkFxcFcyQklRMnIrTVZzd2lyTG5lZ3J4M2hrZ3V2OXFBWVY=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
     maxSimultaneousImageTargets: 1
     maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
-<<<<<<< HEAD
-=======
-    cameraDirection: 0
-    mirrorVideoBackground: 0
->>>>>>> 11f15f405d7aeb186f1291bf70e716ed74b23ebf
-    version: 8.1.7
-    eulaAcceptedVersions: '{"Values":["7.1","8.0","7.5","7.2","7.7","8.1","0.0"]}'
+    version: 1.0.0
+    eulaAcceptedVersions: 
   digitalEyewear:
     cameraOffset: 0.06
     distortionRenderingLayer: 31
