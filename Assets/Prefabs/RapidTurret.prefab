@@ -387,11 +387,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8c8e6095ea04fb6a6deb43dd954497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: rapidTurret
+  id: 
   currentHealth: 100
   displayHealth: {fileID: 763106286}
-  damage: 2
-  nextAttack: 0.5
+  damage: 10
+  nextAttack: 2
   projectile: {fileID: 0}
   bottom: {fileID: 6989948786303218970}
   eManager: {fileID: 0}

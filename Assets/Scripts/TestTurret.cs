@@ -13,6 +13,7 @@ public class TestTurret : Placeable
     public EnemyManager eManager;
     List<GameObject> enemies;
     float timer;
+    bool isActive = false;
 
     void Start()
     {
@@ -40,6 +41,11 @@ public class TestTurret : Placeable
                     enemies.Remove(enemy);
             }
         }
+        if(isActive) {
+            DrawCircle(gameObject,radius, 0.1f);
+        } else {
+            GetComponent<LineRenderer>().positionCount = 0;
+        }
     }
 
     void FindCloseEnemies()
@@ -52,5 +58,29 @@ public class TestTurret : Placeable
                 enemies.Add(enemy);
             }
         }
+    }
+
+    void DrawCircle(GameObject container, float radius, float lineWidth)
+    {
+        var segments = 360;
+        var line = container.GetComponent<LineRenderer>();
+        line.useWorldSpace = false;
+        line.startWidth = lineWidth;
+        line.endWidth = lineWidth;
+        line.positionCount = segments + 1;
+
+        var pointCount = segments + 1; // add extra point to make startpoint and endpoint the same to close the circle
+        var points = new Vector3[pointCount];
+
+        for (int i = 0; i < pointCount; i++)
+        {
+            var rad = Mathf.Deg2Rad * (i * 360f / segments);
+            points[i] = new Vector3(Mathf.Sin(rad) * radius, 0, Mathf.Cos(rad) * radius);
+        }
+
+        line.SetPositions(points);
+    }
+    public void ToggleActive() {
+        isActive = !isActive;
     }
 }
