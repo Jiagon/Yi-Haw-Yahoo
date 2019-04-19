@@ -29,6 +29,7 @@ public class PhaseManager : MonoBehaviour
         SetGameState(PhaseState.GameOver);
     }
     public void EnterPlacable() {
+        DestroyGameObjectsWithTag("Enemy");
         SetGameState(PhaseState.Placement);
     }
     public void SetGameState(PhaseState phase) {
