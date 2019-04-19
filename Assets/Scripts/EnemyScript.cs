@@ -19,7 +19,7 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(currentHealth == 0)
+        if(currentHealth <= 0)
             currentHealth = 20;
 
         if (displayHealth != null)
