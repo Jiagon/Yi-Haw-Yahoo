@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public List<GameObject> enemies;
-    public GameObject enemyPrefab;
     public uint numEnemies = 0;
 
     List<GameObject> Spawns = new List<GameObject>();
@@ -13,6 +12,8 @@ public class EnemyManager : MonoBehaviour
     float nextSpawn;
 
     PhaseManager pManager;
+    public Transform enemyPrefab;
+    public GameObject table;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,9 @@ public class EnemyManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        enemies.Add(Instantiate(enemyPrefab, Spawns[Random.Range(0, Spawns.Count)].transform.position, Quaternion.identity));
+        Transform newEnemy = Instantiate(enemyPrefab,Spawns[Random.Range(0, Spawns.Count)].transform.position,Quaternion.identity);
+        newEnemy.parent = table.transform;
+        enemies.Add(newEnemy.gameObject);
         enemies[enemies.Count - 1].GetComponent<EnemyScript>().eManager = this;
     }
 

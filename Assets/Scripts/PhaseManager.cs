@@ -29,6 +29,7 @@ public class PhaseManager : MonoBehaviour
         SetGameState(PhaseState.GameOver);
     }
     public void EnterPlacable() {
+        DestroyGameObjectsWithTag("Enemy");
         SetGameState(PhaseState.Placement);
     }
     public void SetGameState(PhaseState phase) {
@@ -40,7 +41,6 @@ public class PhaseManager : MonoBehaviour
                 ToggleGameObjects("placementUI",true);
                 ToggleGameObjects("gameoverUI",false);
                 ToggleGameObjects("attackUI",false);
-                DestroyGameObjectsWithTag("Enemy");
                 DestroyGameObjectsWithTag("placedObject");
                 for(int i = 0; i < GameObject.FindObjectsOfType<CardZone>().Length; i++) {
                     GameObject.FindObjectsOfType<CardZone>()[i].hasActiveObject = false;
