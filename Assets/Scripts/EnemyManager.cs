@@ -24,10 +24,9 @@ public class EnemyManager : MonoBehaviour
         {
             Spawns.Add(g);
         }
-        timer = 0f;
-        nextSpawn = 0f;
-
         pManager = this.GetComponent<PhaseManager>();
+
+        ResetEnemies(numEnemies);
     }
 
     // Update is called once per frame
@@ -59,5 +58,13 @@ public class EnemyManager : MonoBehaviour
     {
         if(enemies.Contains(enemy))
             enemies.Remove(enemy);
+    }
+
+    public void ResetEnemies(uint enemyCount)
+    {
+        enemies.Clear();
+        timer = 0f;
+        nextSpawn = 0f;
+        numEnemies = enemyCount;
     }
 }
