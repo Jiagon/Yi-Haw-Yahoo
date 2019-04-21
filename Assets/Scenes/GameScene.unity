@@ -2533,6 +2533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   numEnemies: 15
+  pManager: {fileID: 0}
   enemyPrefab: {fileID: 7066772139206517481, guid: c4e73803fcef3124194aea5b5004f525,
     type: 3}
   table: {fileID: 135820355}
@@ -2943,7 +2944,7 @@ PrefabInstance:
     - target: {fileID: 3823909161382123797, guid: cc8f6c5bb0fb44f31922fd546588b2ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3823909161382123797, guid: cc8f6c5bb0fb44f31922fd546588b2ac,
         type: 3}
