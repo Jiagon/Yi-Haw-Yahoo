@@ -11,7 +11,7 @@ public class EnemyManager : MonoBehaviour
     float timer;
     float nextSpawn;
 
-    PhaseManager pManager;
+    public PhaseManager pManager;
     public Transform enemyPrefab;
     public GameObject table;
 
@@ -62,7 +62,7 @@ public class EnemyManager : MonoBehaviour
 
     public void ResetEnemies(uint enemyCount)
     {
-        enemies.Clear();
+        //enemies.Clear();
         timer = 0f;
         nextSpawn = 0f;
         numEnemies = enemyCount;

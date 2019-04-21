@@ -34,7 +34,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 || eManager.pManager.GetCurrentState() != PhaseState.Attack)
         {
             eManager.RemoveEnemy(this.gameObject);
             Destroy(this.gameObject);
