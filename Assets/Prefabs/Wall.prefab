@@ -420,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7378357401611761405
 Transform:
   m_ObjectHideFlags: 0
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Wall
   currentHealth: 20
-  displayHealth: {fileID: 0}
+  displayHealth: {fileID: 7378357400534408565}
 --- !u!54 &828618387
 Rigidbody:
   m_ObjectHideFlags: 0

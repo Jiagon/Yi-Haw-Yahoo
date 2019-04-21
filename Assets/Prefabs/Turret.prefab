@@ -331,7 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   currentHealth: 100
-  displayHealth: {fileID: 0}
+  displayHealth: {fileID: 1041717233}
   damage: 2
   nextAttack: 2
   radius: 5

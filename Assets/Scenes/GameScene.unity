@@ -2375,6 +2375,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 5536758525442384225, guid: 7135f6b124bed4b45b34eef1509a2f7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5536758525442424129, guid: 7135f6b124bed4b45b34eef1509a2f7d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4756,11 +4761,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
-      objectReference: {fileID: 0}
-    - target: {fileID: 7378357401612118749, guid: 8c8536c6957ad4a568491a9eb390a3d7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7378357401611761405, guid: 8c8536c6957ad4a568491a9eb390a3d7,
         type: 3}
