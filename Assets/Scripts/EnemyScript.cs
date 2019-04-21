@@ -15,11 +15,12 @@ public class EnemyScript : MonoBehaviour
     Vector2 originalDisplayDimensions;
     bool moving;
     float maxVelocity;
+    float radius;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
             currentHealth = 20;
 
         if (displayHealth != null)
@@ -29,20 +30,26 @@ public class EnemyScript : MonoBehaviour
         moving = true;
 
         maxVelocity = 0.6f;
+        radius = 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth <= 0 || eManager.pManager.GetCurrentState() != PhaseState.Attack)
+        if (currentHealth <= 0)
         {
             eManager.RemoveEnemy(this.gameObject);
             Destroy(this.gameObject);
         }
         if (moving)
+        {
+            FindClosePlaceable();
             Move();
+        }
         else
+        {
             Attack();
+        }
 
     }
 
@@ -57,9 +64,14 @@ public class EnemyScript : MonoBehaviour
 
     void Attack()
     {
-        if(attackTarget != null)
+        if (attackTarget != null)
         {
             attackTarget.GetComponent<Placeable>().TakeDamage(attack);
+            if (!attackTarget.GetComponent<Placeable>().IsAlive())
+            {
+                attackTarget = null;
+                moving = true;
+            }
         }
     }
 
@@ -73,21 +85,15 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void FindClosePlaceable()
     {
-        if(collision.gameObject.tag == "Placeable" || collision.gameObject == moveTarget)
+        foreach (GameObject p in eManager.placeables)
         {
-            moving = false;
-            attackTarget = collision.gameObject;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (attackTarget != null)
-        {
-            moving = true;
-            attackTarget = null;
+            if (Vector3.Magnitude(p.transform.position - transform.position) < radius)
+            {
+                attackTarget = p;
+                moving = false;
+            }
         }
     }
 }

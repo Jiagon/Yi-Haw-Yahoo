@@ -12,24 +12,28 @@ public enum PhaseState
 
 public class PhaseManager : MonoBehaviour
 {
+    public GameObject arcPrefab;
 
     private PhaseState currentState;
+    EnemyManager eManager;
 
     void Start(){
         SetGameState(PhaseState.Placement);
+        eManager = GetComponent<EnemyManager>();
     }
 
     public PhaseState GetCurrentState() {
         return currentState;
     }
     public void EnterAttack(){
+        eManager.UpdatePlaceables();
         SetGameState(PhaseState.Attack);
     }
     public void EnterGameOver() {
         SetGameState(PhaseState.GameOver);
     }
     public void EnterPlacable() {
-        DestroyGameObjectsWithTag("Enemy");
+        eManager.ResetEnemies(15);
         SetGameState(PhaseState.Placement);
     }
     public void SetGameState(PhaseState phase) {
@@ -46,6 +50,10 @@ public class PhaseManager : MonoBehaviour
                     GameObject.FindObjectsOfType<CardZone>()[i].hasActiveObject = false;
                 }
                 //Toggle Stop button to play mode
+                if(GameObject.FindGameObjectWithTag("Player") == null)
+                {
+                    Instantiate(arcPrefab, GameObject.Find("Table").transform);
+                }
                 break;
             case PhaseState.Attack:
                 Debug.Log("In Attack");

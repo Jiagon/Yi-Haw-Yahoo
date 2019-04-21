@@ -14,6 +14,7 @@ public class EnemyManager : MonoBehaviour
     public PhaseManager pManager;
     public Transform enemyPrefab;
     public GameObject table;
+    public List<GameObject> placeables;
 
     // Start is called before the first frame update
     void Start()
@@ -62,9 +63,21 @@ public class EnemyManager : MonoBehaviour
 
     public void ResetEnemies(uint enemyCount)
     {
-        //enemies.Clear();
+        foreach(GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        enemies.Clear();
         timer = 0f;
         nextSpawn = 0f;
         numEnemies = enemyCount;
+    }
+
+    public void UpdatePlaceables()
+    {
+        foreach(Placeable p in FindObjectsOfType<Placeable>())
+        {
+            placeables.Add(p.gameObject);
+        }
     }
 }
