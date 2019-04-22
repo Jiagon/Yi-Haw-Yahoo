@@ -6,7 +6,7 @@ public class TestTurret : Placeable
 {
     public int damage = 10;
     public float nextAttack = 2f;
-    float radius = 15f;
+    public float radius = 15f;
     public GameObject projectile;
     public GameObject bottom;
 
