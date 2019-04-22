@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 [System.Serializable]
 public enum PhaseState
@@ -14,9 +16,17 @@ public class PhaseManager : MonoBehaviour
 {
 
     private PhaseState currentState;
+    public Sprite screen_1;
+    public Sprite screen_2;
+    private Image screen;
+    public GameObject button_next;
+    public GameObject button_last;
 
     void Start(){
         SetGameState(PhaseState.Placement);
+        screen = GameObject.Find("screen").GetComponent<Image>();
+        button_next = GameObject.Find("tutorial_next");
+        button_last = GameObject.Find("tutorial_last");
     }
 
     public PhaseState GetCurrentState() {
@@ -30,6 +40,31 @@ public class PhaseManager : MonoBehaviour
     }
     public void EnterPlacable() {
         SetGameState(PhaseState.Placement);
+    }
+    public void showTutorial() {
+        ToggleGameObjects("tutorialUI", true);
+        button_next.SetActive(true);
+        button_last.SetActive(false);
+    }
+    public void nextTutPage() {
+        print("nextTutCalled");
+        //change sprite to next tut page
+        screen.sprite = screen_2;
+        //switch buttons
+        button_next.SetActive(false);
+        button_last.SetActive(true);
+    }
+    public void lastTutPage() {
+        //change sprite to last tut page
+        screen.sprite = screen_1;
+        //switch buttons
+        button_next.SetActive(true);
+        button_last.SetActive(false);
+    }
+    public void closeTutorial() {
+        ToggleGameObjects("tutorialUI", false);
+        button_next.SetActive(false);
+        button_last.SetActive(false);
     }
     public void SetGameState(PhaseState phase) {
         currentState = phase;   //Set our new current game phase
