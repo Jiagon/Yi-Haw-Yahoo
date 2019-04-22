@@ -5,12 +5,16 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public List<GameObject> enemies;
-    public GameObject enemyPrefab;
     public uint numEnemies = 0;
 
     List<GameObject> Spawns = new List<GameObject>();
     float timer;
     float nextSpawn;
+
+    public PhaseManager pManager;
+    public Transform enemyPrefab;
+    public GameObject table;
+    public List<GameObject> placeables;
 
     // Start is called before the first frame update
     void Start()
@@ -21,18 +25,16 @@ public class EnemyManager : MonoBehaviour
         {
             Spawns.Add(g);
         }
-        timer = 0f;
-        nextSpawn = 0f;
+        pManager = this.GetComponent<PhaseManager>();
 
-        if (numEnemies == 0)
-            numEnemies = 10;
+        ResetEnemies(numEnemies);
     }
 
     // Update is called once per frame
     void Update()
     {
         // While there are still enemies to place on the screen, spawn in an enemy every 1 - 3 seconds
-        if (numEnemies > 0)
+        if (pManager.GetCurrentState() == PhaseState.Attack && numEnemies > 0)
         {
             timer += Time.deltaTime;
             if (timer >= nextSpawn)
@@ -47,7 +49,9 @@ public class EnemyManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        enemies.Add(Instantiate(enemyPrefab, Spawns[Random.Range(0, Spawns.Count)].transform.position, Quaternion.identity));
+        Transform newEnemy = Instantiate(enemyPrefab,Spawns[Random.Range(0, Spawns.Count)].transform.position,Quaternion.identity);
+        newEnemy.parent = table.transform;
+        enemies.Add(newEnemy.gameObject);
         enemies[enemies.Count - 1].GetComponent<EnemyScript>().eManager = this;
     }
 
@@ -55,5 +59,25 @@ public class EnemyManager : MonoBehaviour
     {
         if(enemies.Contains(enemy))
             enemies.Remove(enemy);
+    }
+
+    public void ResetEnemies(uint enemyCount)
+    {
+        foreach(GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        enemies.Clear();
+        timer = 0f;
+        nextSpawn = 0f;
+        numEnemies = enemyCount;
+    }
+
+    public void UpdatePlaceables()
+    {
+        foreach(Placeable p in FindObjectsOfType<Placeable>())
+        {
+            placeables.Add(p.gameObject);
+        }
     }
 }

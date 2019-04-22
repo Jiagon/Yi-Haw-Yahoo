@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class TestTurret : Placeable
 {
-    public int damage = 50;
+    public int damage = 10;
     public float nextAttack = 2f;
-    float radius = 15f;
+    public float radius = 15f;
     public GameObject projectile;
     public GameObject bottom;
 
-    EnemyManager eManager;
+    public EnemyManager eManager;
     List<GameObject> enemies;
     float timer;
 
     void Start()
     {
-        eManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
         enemies = new List<GameObject>();
     }
 
-    void Update()
+    override protected void Update()
     {
+        base.Update();
         timer += Time.deltaTime;
         if (timer > nextAttack)
         {
@@ -33,7 +33,7 @@ public class TestTurret : Placeable
                 foreach (GameObject enemy in enemies)
                 {
                     enemy.GetComponent<EnemyScript>().TakeDamage(damage);
-                    if (enemy.GetComponent<EnemyScript>().health <= 0)
+                    if (enemy.GetComponent<EnemyScript>().currentHealth <= 0)
                         dead.Add(enemy);
                 }
                 foreach (GameObject enemy in dead)

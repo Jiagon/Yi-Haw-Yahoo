@@ -18,7 +18,7 @@ public class Placeable : MonoBehaviour {
     }
 
     public bool IsAlive() {
-        return currentHealth <= 0;
+        return currentHealth > 0;
     }
 
     void Start()
@@ -26,15 +26,14 @@ public class Placeable : MonoBehaviour {
         originalDisplayDimensions = displayHealth.GetComponent<RectTransform>().sizeDelta;
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        TakeDamage(1);
+        if (!IsAlive())
+            Destroy(this.gameObject);
     }
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Taking damage of " + damage + ", current Health: " + currentHealth);
-        Debug.Log(currentHealth + ", " + MAX_HEALTH + ", " + (float)((float)currentHealth / (float)MAX_HEALTH));
         currentHealth -= damage;
         // TODO: Update canvas
         if(displayHealth != null)

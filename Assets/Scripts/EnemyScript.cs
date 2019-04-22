@@ -4,78 +4,96 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public int health = 0;
+    int MAX_HEALTH = 20;
+    public int currentHealth = 0;
     public int attack = 5;
     public GameObject moveTarget;
     public GameObject attackTarget;
     public EnemyManager eManager;
+    public GameObject displayHealth;
 
+    Vector2 originalDisplayDimensions;
     bool moving;
     float maxVelocity;
+    float radius;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(health == 0)
-            health = 20;
+        if (currentHealth <= 0)
+            currentHealth = 20;
 
+        if (displayHealth != null)
+            originalDisplayDimensions = displayHealth.GetComponent<RectTransform>().sizeDelta;
         moveTarget = GameObject.FindGameObjectWithTag("Player");
 
         moving = true;
 
-        maxVelocity = 2.0f;
+        maxVelocity = 0.6f;
+        radius = 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             eManager.RemoveEnemy(this.gameObject);
             Destroy(this.gameObject);
         }
         if (moving)
+        {
+            FindClosePlaceable();
             Move();
+        }
         else
+        {
             Attack();
+        }
 
     }
 
     void Move()
     {
-        Vector3 move = (moveTarget.transform.position - this.transform.position).normalized;
-        transform.position += (move * Time.deltaTime * maxVelocity);
+        if (moveTarget != null)
+        {
+            Vector3 move = (moveTarget.transform.position - this.transform.position).normalized;
+            transform.position += (move * Time.deltaTime * maxVelocity);
+        }
     }
 
     void Attack()
     {
-        if(attackTarget != null)
+        if (attackTarget != null)
         {
             attackTarget.GetComponent<Placeable>().TakeDamage(attack);
+            if (!attackTarget.GetComponent<Placeable>().IsAlive())
+            {
+                attackTarget = null;
+                moving = true;
+            }
         }
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
         // TODO: Update canvas
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "PlayerObject" || collision.gameObject == moveTarget)
+        if (displayHealth != null)
         {
-            moving = false;
-            attackTarget = collision.gameObject;
+            displayHealth.GetComponent<RectTransform>().sizeDelta = new Vector2(originalDisplayDimensions.x * (float)((float)currentHealth / (float)MAX_HEALTH), originalDisplayDimensions.y);
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    void FindClosePlaceable()
     {
-        if (attackTarget != null)
+        foreach (GameObject p in eManager.placeables)
         {
-            moving = true;
-            attackTarget = null;
+            if (Vector3.Magnitude(p.transform.position - transform.position) < radius)
+            {
+                attackTarget = p;
+                moving = false;
+            }
         }
     }
 }
