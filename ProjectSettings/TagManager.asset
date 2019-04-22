@@ -15,6 +15,7 @@ TagManager:
   - gameoverUI
   - mainmenuUI
   - tutorialUI
+  - tutorial_2
   layers:
   - Default
   - TransparentFX

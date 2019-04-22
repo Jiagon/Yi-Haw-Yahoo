@@ -17,21 +17,15 @@ public class PhaseManager : MonoBehaviour
 
     private PhaseState currentState;
     EnemyManager eManager;
-    public GameObject screen_1;
-    public GameObject screen_2;
+     GameObject screen_1;
+     GameObject screen_2;
     private Image screen;
-    public GameObject button_next;
-    public GameObject button_last;
+     GameObject button_next;
+     GameObject button_last;
 
     void Start(){
         SetGameState(PhaseState.Placement);
         eManager = GetComponent<EnemyManager>();
-        
-        //Tutorial components
-        screen_1 = GameObject.Find("screen_1");
-        screen_2 = GameObject.Find("screen_2");
-        button_next = GameObject.Find("tutorial_next");
-        button_last = GameObject.Find("tutorial_last");
     }
 
     public PhaseState GetCurrentState() {
