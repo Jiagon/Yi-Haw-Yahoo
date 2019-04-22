@@ -1318,6 +1318,56 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4694450867650171998, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694450868476879278, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694450868757216170, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694450868946275612, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694450868977892103, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694450869074213194, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694450868476879272, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 925143891}
+    - target: {fileID: 4694450868476879272, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnterPlacable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694450868946275614, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 925143893}
+    - target: {fileID: 4694450868946275614, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344d44e2e7e3a68418ba689d026826c9, type: 3}
 --- !u!224 &489767715 stripped
