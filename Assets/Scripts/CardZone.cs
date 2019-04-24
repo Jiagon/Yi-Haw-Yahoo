@@ -15,6 +15,7 @@ public class CardZone : MonoBehaviour
         hasActiveObject = true; //Set so we haveActiveObject (Track to use with UI).
         //Set the new object to our current activeObject.
         activeObject = Instantiate(obj,transform.position,transform.rotation);
+        activeObject.transform.localScale *= 3f;
         activeObject.tag = placedObjectTag;
         obj.SetActive(false);
         //Set the parent of the new object to this card zone

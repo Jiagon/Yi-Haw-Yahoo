@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public enum PhaseState
@@ -16,6 +17,11 @@ public class PhaseManager : MonoBehaviour
 
     private PhaseState currentState;
     EnemyManager eManager;
+     GameObject screen_1;
+     GameObject screen_2;
+    private Image screen;
+     GameObject button_next;
+     GameObject button_last;
 
     void Start(){
         SetGameState(PhaseState.Placement);
