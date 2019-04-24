@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 2154492820526171214}
   - component: {fileID: 3784605111241748201}
   m_Layer: 0
-  m_Name: Ark Reactor
+  m_Name: Ark Reactor_Placeholder
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -355,4 +355,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   currentHealth: 1000
+  displayMaxHealth: {fileID: 312562555}
   displayHealth: {fileID: 918038627}

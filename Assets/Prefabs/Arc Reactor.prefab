@@ -1166,4 +1166,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ARC
   currentHealth: 1000
+  displayMaxHealth: {fileID: 1802189852}
   displayHealth: {fileID: 624819211}
