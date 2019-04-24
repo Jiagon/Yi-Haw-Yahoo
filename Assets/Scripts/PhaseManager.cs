@@ -42,36 +42,6 @@ public class PhaseManager : MonoBehaviour
         eManager.ResetEnemies(15);
         SetGameState(PhaseState.Placement);
     }
-    //HANDLING TUTORIAL
-    public void showTutorial() {
-        ToggleGameObjects("tutorialUI", true);
-        button_next.SetActive(true);
-        button_last.SetActive(false);
-    }
-    public void nextTutPage() {
-        print("nextTutCalled");
-        //switch screens
-        screen_1.SetActive(false);
-        screen_2.SetActive(true);
-        //switch buttons
-        button_next.SetActive(false);
-        button_last.SetActive(true);
-    }
-    public void lastTutPage() {
-        //switch screens
-        screen_1.SetActive(true);
-        screen_2.SetActive(false);
-        //switch buttons
-        button_next.SetActive(true);
-        button_last.SetActive(false);
-    }
-    public void closeTutorial() {
-        ToggleGameObjects("tutorialUI", false);
-        screen_1.SetActive(false);
-        screen_2.SetActive(false);
-        button_next.SetActive(false);
-        button_last.SetActive(false);
-    }
     public void SetGameState(PhaseState phase) {
         currentState = phase;   //Set our new current game phase
         switch(phase) {
