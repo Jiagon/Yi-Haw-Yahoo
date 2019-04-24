@@ -466,6 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Wall
   currentHealth: 20
+  displayMaxHealth: {fileID: 7378357401006107768}
   displayHealth: {fileID: 7378357400534408565}
 --- !u!54 &828618387
 Rigidbody:

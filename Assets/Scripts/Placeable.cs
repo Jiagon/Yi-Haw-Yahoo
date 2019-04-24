@@ -6,8 +6,10 @@ public class Placeable : MonoBehaviour {
     public string id;
     public const int MAX_HEALTH = 1000;
     public int currentHealth = 1000;
+    public GameObject displayMaxHealth;
     public GameObject displayHealth;
     Vector2 originalDisplayDimensions;
+    Camera cam;
 
 
     public string getId() {
@@ -24,6 +26,7 @@ public class Placeable : MonoBehaviour {
     void Start()
     {
         originalDisplayDimensions = displayHealth.GetComponent<RectTransform>().sizeDelta;
+        cam = Camera.current;
     }
 
     protected virtual void Update()
@@ -40,5 +43,17 @@ public class Placeable : MonoBehaviour {
         {
             displayHealth.GetComponent<RectTransform>().sizeDelta = new Vector2(originalDisplayDimensions.x * (float)((float)currentHealth / (float)MAX_HEALTH), originalDisplayDimensions.y);
         }
+    }
+
+    private void OnGUI()
+    {
+        Debug.Log(cam);
+        Vector3 v = cam.transform.position - transform.position;
+        v.x = v.z = 0.0f;
+
+        displayMaxHealth.transform.LookAt(cam.transform.position - v);
+        displayMaxHealth.transform.Rotate(0, 180, 0);
+        displayHealth.transform.LookAt(cam.transform.position - v);
+        displayHealth.transform.Rotate(0, 180, 0);
     }
 }

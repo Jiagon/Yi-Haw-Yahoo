@@ -331,6 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   currentHealth: 100
+  displayMaxHealth: {fileID: 741495997}
   displayHealth: {fileID: 1041717233}
   damage: 2
   nextAttack: 2
