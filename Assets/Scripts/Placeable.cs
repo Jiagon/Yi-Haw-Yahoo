@@ -45,15 +45,24 @@ public class Placeable : MonoBehaviour {
         }
     }
 
+    public void Reset()
+    {
+        currentHealth = MAX_HEALTH;
+        displayHealth.GetComponent<RectTransform>().sizeDelta = originalDisplayDimensions;
+    }
+
     private void OnGUI()
     {
-        Debug.Log(cam);
-        Vector3 v = cam.transform.position - transform.position;
-        v.x = v.z = 0.0f;
+        if (cam != null)
+        {
+            Debug.Log(cam);
+            Vector3 v = cam.transform.position - transform.position;
+            v.x = v.z = 0.0f;
 
-        displayMaxHealth.transform.LookAt(cam.transform.position - v);
-        displayMaxHealth.transform.Rotate(0, 180, 0);
-        displayHealth.transform.LookAt(cam.transform.position - v);
-        displayHealth.transform.Rotate(0, 180, 0);
+            displayMaxHealth.transform.LookAt(cam.transform.position - v);
+            displayMaxHealth.transform.Rotate(0, 180, 0);
+            displayHealth.transform.LookAt(cam.transform.position - v);
+            displayHealth.transform.Rotate(0, 180, 0);
+        }
     }
 }

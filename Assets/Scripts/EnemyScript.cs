@@ -69,6 +69,7 @@ public class EnemyScript : MonoBehaviour
             attackTarget.GetComponent<Placeable>().TakeDamage(attack);
             if (!attackTarget.GetComponent<Placeable>().IsAlive())
             {
+                eManager.RemovePlaceable(attackTarget);
                 attackTarget = null;
                 moving = true;
             }
@@ -87,7 +88,7 @@ public class EnemyScript : MonoBehaviour
 
     void FindClosePlaceable()
     {
-        foreach (GameObject p in eManager.placeables)
+        foreach (GameObject p in eManager.GetPlaceables())
         {
             if (Vector3.Magnitude(p.transform.position - transform.position) < radius)
             {
@@ -95,5 +96,10 @@ public class EnemyScript : MonoBehaviour
                 moving = false;
             }
         }
+    }
+
+    void FaceTarget(GameObject target)
+    {
+        transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
     }
 }

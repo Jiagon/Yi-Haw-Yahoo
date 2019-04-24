@@ -11,10 +11,10 @@ public class EnemyManager : MonoBehaviour
     float timer;
     float nextSpawn;
 
-    public PhaseManager pManager;
+    public PhaseManager phaseManager;
     public Transform enemyPrefab;
     public GameObject table;
-    public List<GameObject> placeables;
+    PlaceableManager placeManager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,8 @@ public class EnemyManager : MonoBehaviour
         {
             Spawns.Add(g);
         }
-        pManager = this.GetComponent<PhaseManager>();
+        phaseManager = this.GetComponent<PhaseManager>();
+        placeManager = this.GetComponent<PlaceableManager>();
 
         ResetEnemies(numEnemies);
     }
@@ -34,7 +35,7 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         // While there are still enemies to place on the screen, spawn in an enemy every 1 - 3 seconds
-        if (pManager.GetCurrentState() == PhaseState.Attack && numEnemies > 0)
+        if (phaseManager.GetCurrentState() == PhaseState.Attack && numEnemies > 0)
         {
             timer += Time.deltaTime;
             if (timer >= nextSpawn)
@@ -61,6 +62,16 @@ public class EnemyManager : MonoBehaviour
             enemies.Remove(enemy);
     }
 
+    public void RemovePlaceable(GameObject placeable)
+    {
+        placeManager.RemovePlaceable(placeable);
+    }
+
+    public List<GameObject> GetPlaceables()
+    {
+        return placeManager.placeables;
+    }
+
     public void ResetEnemies(uint enemyCount)
     {
         foreach(GameObject enemy in enemies)
@@ -71,13 +82,5 @@ public class EnemyManager : MonoBehaviour
         timer = 0f;
         nextSpawn = 0f;
         numEnemies = enemyCount;
-    }
-
-    public void UpdatePlaceables()
-    {
-        foreach(Placeable p in FindObjectsOfType<Placeable>())
-        {
-            placeables.Add(p.gameObject);
-        }
     }
 }
