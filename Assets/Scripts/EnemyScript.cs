@@ -16,6 +16,8 @@ public class EnemyScript : MonoBehaviour
     bool moving;
     float maxVelocity;
     float radius;
+    bool canAttack = false;
+    public float attackCoolDownTime = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -46,11 +48,9 @@ public class EnemyScript : MonoBehaviour
             FindClosePlaceable();
             Move();
         }
-        else
-        {
+        if(canAttack) {
             Attack();
         }
-
     }
 
     void Move()
@@ -73,6 +73,12 @@ public class EnemyScript : MonoBehaviour
                 moving = true;
             }
         }
+        canAttack = false;
+        StartCoroutine(AttackCooldown());
+    }
+    IEnumerator AttackCooldown() {
+        yield return new WaitForSeconds(attackCoolDownTime);
+        canAttack = true;
     }
 
     public void TakeDamage(int damage)
