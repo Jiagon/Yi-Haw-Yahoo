@@ -78,6 +78,7 @@ public class EnemyScript : MonoBehaviour
         canAttack = false;
         StartCoroutine(AttackCooldown());
     }
+
     IEnumerator AttackCooldown() {
         yield return new WaitForSeconds(attackCoolDownTime);
         canAttack = true;
