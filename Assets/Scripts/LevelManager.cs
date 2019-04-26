@@ -6,18 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private string cardZoneTagName = "cardZone";
     private CardZone[] cardZones; //Array of all card placement zones in the level.
     public List<string> activeIds = new List<string>();
     public int numOfCardZones;  //How many zones we have in this level (For UI purposes)
     public int activeCardZones = 0; //Number of card zones active with an object placed in them.
-    public Text cardsLeftText;
+    //public Text cardsLeftText;
     public int pointsAvailable = 0;
     public Text pointsAvailableText;
     void Start() {
         cardZones = GameObject.FindObjectsOfType<CardZone>();
         numOfCardZones = cardZones.Length;
-        cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
+        //cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
         pointsAvailableText.text = pointsAvailable.ToString();
     }
 
@@ -28,7 +27,7 @@ public class LevelManager : MonoBehaviour
             }
         }
         activeIds.Add(id);
-        cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
+        //cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
     }
 
     public void RemoveIdFromList(string id){
@@ -37,7 +36,7 @@ public class LevelManager : MonoBehaviour
                 activeIds.Remove(id);
             }
         }
-        cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
+        //cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
     }
 
     public bool isIdEnabled(string id) {
