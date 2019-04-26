@@ -48,7 +48,7 @@ public class PlaceableManager : MonoBehaviour
     {
         foreach (GameObject placeable in placeables)
         {
-            placeable.GetComponent<Placeable>().Reset();
+            placeable.GetComponent<Placeable>().ResetHealth();
         }
     }
 

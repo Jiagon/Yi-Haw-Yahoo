@@ -59,6 +59,7 @@ public class EnemyScript : MonoBehaviour
         {
             Vector3 move = (moveTarget.transform.position - this.transform.position).normalized;
             transform.position += (move * Time.deltaTime * maxVelocity);
+            FaceTarget(moveTarget);
         }
     }
 

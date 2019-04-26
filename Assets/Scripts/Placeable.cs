@@ -45,7 +45,7 @@ public class Placeable : MonoBehaviour {
         }
     }
 
-    public void Reset()
+    public void ResetHealth()
     {
         currentHealth = MAX_HEALTH;
         displayHealth.GetComponent<RectTransform>().sizeDelta = originalDisplayDimensions;
