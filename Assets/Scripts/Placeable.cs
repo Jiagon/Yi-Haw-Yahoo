@@ -11,6 +11,7 @@ public class Placeable : MonoBehaviour {
     Vector2 originalDisplayDimensions;
     Camera cam;
 
+    public GameObject interactionContainer;
 
     public string getId() {
         return id;
@@ -26,7 +27,7 @@ public class Placeable : MonoBehaviour {
     void Start()
     {
         originalDisplayDimensions = displayHealth.GetComponent<RectTransform>().sizeDelta;
-        cam = Camera.current;
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     protected virtual void Update()
@@ -47,13 +48,26 @@ public class Placeable : MonoBehaviour {
 
     private void OnGUI()
     {
-        Debug.Log(cam);
-        Vector3 v = cam.transform.position - transform.position;
-        v.x = v.z = 0.0f;
+        if(cam != null) {
+            Vector3 v = cam.transform.position - transform.position;
+            v.x = v.z = 0.0f;
 
-        displayMaxHealth.transform.LookAt(cam.transform.position - v);
-        displayMaxHealth.transform.Rotate(0, 180, 0);
-        displayHealth.transform.LookAt(cam.transform.position - v);
-        displayHealth.transform.Rotate(0, 180, 0);
+            displayMaxHealth.transform.LookAt(cam.transform.position - v);
+            displayMaxHealth.transform.Rotate(0, 180, 0);
+            displayHealth.transform.LookAt(cam.transform.position - v);
+            displayHealth.transform.Rotate(0, 180, 0);
+        }
+    }
+    public void ToggleInteractionUI() {
+        interactionContainer.SetActive(!interactionContainer.activeSelf);
+    }
+
+    public void RemoveObject() {
+        GameObject[] zones = GameObject.FindGameObjectsWithTag("CardZone");
+        foreach(GameObject zone in zones) {
+            if(zone.GetComponent<CardZone>().activeObject== gameObject) {
+                zone.GetComponent<CardZone>().RemoveActiveObject();
+            }
+        }
     }
 }

@@ -14,14 +14,8 @@ public enum PhaseState
 public class PhaseManager : MonoBehaviour
 {
     public GameObject arcPrefab;
-
     private PhaseState currentState;
     EnemyManager eManager;
-     GameObject screen_1;
-     GameObject screen_2;
-    private Image screen;
-     GameObject button_next;
-     GameObject button_last;
 
     void Start(){
         SetGameState(PhaseState.Placement);
@@ -51,23 +45,19 @@ public class PhaseManager : MonoBehaviour
                 ToggleGameObjects("placementUI",true);
                 ToggleGameObjects("gameoverUI",false);
                 ToggleGameObjects("attackUI",false);
-                DestroyGameObjectsWithTag("placedObject");
-                for(int i = 0; i < GameObject.FindObjectsOfType<CardZone>().Length; i++) {
-                    GameObject.FindObjectsOfType<CardZone>()[i].hasActiveObject = false;
+                GameObject[] zones = GameObject.FindGameObjectsWithTag("CardZone");
+                for(int i = 0; i < zones.Length; i++) {
+                    zones[i].GetComponent<CardZone>().RemoveActiveObject();
                 }
-                //Toggle Stop button to play mode
                 if(GameObject.FindGameObjectWithTag("Player") == null)
                 {
                     Instantiate(arcPrefab, GameObject.Find("Table").transform);
                 }
                 break;
             case PhaseState.Attack:
-                Debug.Log("In Attack");
                 ToggleGameObjects("Placeable",false);
                 ToggleGameObjects("placementUI",false);
                 ToggleGameObjects("attackUI",true);
-                //Toggle play button to Stop Mode
-                //Start the spawning of enemeies
                 break;
             case PhaseState.GameOver:
                 ToggleGameObjects("gameoverUI",true);
