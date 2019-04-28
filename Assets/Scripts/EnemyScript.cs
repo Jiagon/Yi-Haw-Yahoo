@@ -15,11 +15,14 @@ public class EnemyScript : MonoBehaviour
     Vector2 originalDisplayDimensions;
     bool moving;
     float maxVelocity;
+    float radius;
+    bool canAttack = false;
+    public float attackCoolDownTime = 3f;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
             currentHealth = 20;
 
         if (displayHealth != null)
@@ -29,21 +32,25 @@ public class EnemyScript : MonoBehaviour
         moving = true;
 
         maxVelocity = 0.6f;
+        radius = 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth <= 0 || eManager.pManager.GetCurrentState() != PhaseState.Attack)
+        if (currentHealth <= 0)
         {
             eManager.RemoveEnemy(this.gameObject);
             Destroy(this.gameObject);
         }
         if (moving)
+        {
+            FindClosePlaceable();
             Move();
-        else
+        }
+        if(canAttack) {
             Attack();
-
+        }
     }
 
     void Move()
@@ -52,15 +59,29 @@ public class EnemyScript : MonoBehaviour
         {
             Vector3 move = (moveTarget.transform.position - this.transform.position).normalized;
             transform.position += (move * Time.deltaTime * maxVelocity);
+            FaceTarget(moveTarget);
         }
     }
 
     void Attack()
     {
-        if(attackTarget != null)
+        if (attackTarget != null)
         {
             attackTarget.GetComponent<Placeable>().TakeDamage(attack);
+            if (!attackTarget.GetComponent<Placeable>().IsAlive())
+            {
+                eManager.RemovePlaceable(attackTarget);
+                attackTarget = null;
+                moving = true;
+            }
         }
+        canAttack = false;
+        StartCoroutine(AttackCooldown());
+    }
+
+    IEnumerator AttackCooldown() {
+        yield return new WaitForSeconds(attackCoolDownTime);
+        canAttack = true;
     }
 
     public void TakeDamage(int damage)
@@ -73,21 +94,20 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void FindClosePlaceable()
     {
-        if(collision.gameObject.tag == "Placeable" || collision.gameObject == moveTarget)
+        foreach (GameObject p in eManager.GetPlaceables())
         {
-            moving = false;
-            attackTarget = collision.gameObject;
+            if (Vector3.Magnitude(p.transform.position - transform.position) < radius)
+            {
+                attackTarget = p;
+                moving = false;
+            }
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    void FaceTarget(GameObject target)
     {
-        if (attackTarget != null)
-        {
-            moving = true;
-            attackTarget = null;
-        }
+        transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
     }
 }

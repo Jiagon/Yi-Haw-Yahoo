@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 7247518015445728717}
   - component: {fileID: 7247518015445728721}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Wall_Placeholder
   m_TagString: Placeable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -355,4 +355,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   currentHealth: 1000
-  displayHealth: {fileID: 0}
+  displayMaxHealth: {fileID: 7247518013896607258}
+  displayHealth: {fileID: 7247518014501043458}

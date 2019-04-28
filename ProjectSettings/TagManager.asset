@@ -14,6 +14,9 @@ TagManager:
   - attackUI
   - gameoverUI
   - mainmenuUI
+  - tutorialUI
+  - tutorial_2
+  - CardZone
   layers:
   - Default
   - TransparentFX
