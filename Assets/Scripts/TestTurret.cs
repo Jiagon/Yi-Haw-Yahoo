@@ -14,8 +14,9 @@ public class TestTurret : Placeable
     List<GameObject> enemies;
     float timer;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         enemies = new List<GameObject>();
     }
 

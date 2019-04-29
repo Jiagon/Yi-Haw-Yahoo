@@ -109,6 +109,8 @@ public class EnemyScript : MonoBehaviour
 
     void FaceTarget(GameObject target)
     {
-        transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
+        Quaternion newRot = Quaternion.LookRotation(target.transform.position - transform.position);
+        float y = newRot.eulerAngles.y;
+        transform.eulerAngles = new Vector3(transform.rotation.x, y, transform.rotation.z);
     }
 }

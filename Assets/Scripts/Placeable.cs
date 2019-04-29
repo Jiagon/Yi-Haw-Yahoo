@@ -24,7 +24,7 @@ public class Placeable : MonoBehaviour {
         return currentHealth > 0;
     }
 
-    void Start()
+    protected virtual void Start()
     {
         originalDisplayDimensions = displayHealth.GetComponent<RectTransform>().sizeDelta;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
