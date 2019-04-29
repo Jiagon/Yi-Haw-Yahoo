@@ -68,6 +68,7 @@ public class EnemyScript : MonoBehaviour
         if (attackTarget != null)
         {
             attackTarget.GetComponent<Placeable>().TakeDamage(attack);
+            GetComponent<AudioSource>().Play();
             if (!attackTarget.GetComponent<Placeable>().IsAlive())
             {
                 eManager.RemovePlaceable(attackTarget);

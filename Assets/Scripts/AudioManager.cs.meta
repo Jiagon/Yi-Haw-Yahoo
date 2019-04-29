@@ -3,7 +3,12 @@ guid: ca208c8f0ffc64ae893d2dcbbac7d161
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - menuClick: {fileID: 8300000, guid: b196dee7f7047485c8a039899c7e42a0, type: 3}
+  - menuMusic: {instanceID: 0}
+  - placementMusic: {fileID: 8300000, guid: e4d1eba6b9a2b4f6a991b6c0e3f6acbf, type: 3}
+  - defendMusic: {instanceID: 0}
+  - spinDown: {fileID: 8300000, guid: 2f2da4c8f528a40438f118aa22264ac6, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
