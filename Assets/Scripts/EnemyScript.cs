@@ -103,6 +103,7 @@ public class EnemyScript : MonoBehaviour
             {
                 attackTarget = p;
                 moving = false;
+                canAttack = true;
             }
         }
     }
