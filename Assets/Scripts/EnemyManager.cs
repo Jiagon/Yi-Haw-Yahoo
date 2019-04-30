@@ -15,10 +15,13 @@ public class EnemyManager : MonoBehaviour
     public Transform enemyPrefab;
     public GameObject table;
     PlaceableManager placeManager;
+    int enemiesKilled = 0;
+    int totalEnemies = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        totalEnemies = (int)numEnemies;
         enemies = new List<GameObject>();
         GameObject[] sceneSpawns = GameObject.FindGameObjectsWithTag("EnemySpawn");
         foreach(GameObject g in sceneSpawns)
@@ -46,6 +49,13 @@ public class EnemyManager : MonoBehaviour
                 nextSpawn = Random.Range(1f, 3f);
             }
         }
+        if(enemiesKilled == totalEnemies) {
+            phaseManager.EnterGameOver();
+        }
+    }
+
+    public void KillEnemy() {
+        enemiesKilled++;
     }
 
     void SpawnEnemy()

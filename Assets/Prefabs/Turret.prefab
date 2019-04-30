@@ -495,16 +495,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  currentHealth: 100
+  MAX_HEALTH: 1000
+  currentHealth: 1000
   displayMaxHealth: {fileID: 741495997}
   displayHealth: {fileID: 1041717233}
+  isArc: 0
   interactionContainer: {fileID: 737744946603115114}
   damage: 2
   nextAttack: 2
   radius: 5
   projectile: {fileID: 0}
   bottom: {fileID: 2008171769}
-  head: {fileID: 5536758525442384235}
   eManager: {fileID: 0}
 --- !u!54 &5536758525442287557
 Rigidbody:

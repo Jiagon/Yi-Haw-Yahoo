@@ -1166,9 +1166,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: ARC
+  MAX_HEALTH: 1000
   currentHealth: 1000
   displayMaxHealth: {fileID: 1802189852}
   displayHealth: {fileID: 624819211}
+  isArc: 1
+  interactionContainer: {fileID: 7499191238561807423}
 --- !u!82 &5219953341672747403
 AudioSource:
   m_ObjectHideFlags: 0
