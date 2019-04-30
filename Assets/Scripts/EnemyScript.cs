@@ -89,6 +89,11 @@ public class EnemyScript : MonoBehaviour
     {
         currentHealth -= damage;
         // TODO: Update canvas
+        if(currentHealth <= 0) {
+            GameObject.Find("GameManager").GetComponent<EnemyManager>().KillEnemy();
+            Destroy(gameObject);
+        }
+
         if (displayHealth != null)
         {
             displayHealth.GetComponent<RectTransform>().sizeDelta = new Vector2(originalDisplayDimensions.x * (float)((float)currentHealth / (float)MAX_HEALTH), originalDisplayDimensions.y);

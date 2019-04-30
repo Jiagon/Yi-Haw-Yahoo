@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Placeable : MonoBehaviour {
     public string id;
-    public const int MAX_HEALTH = 1000;
+    public int MAX_HEALTH = 100;
     public int currentHealth = 1000;
     public GameObject displayMaxHealth;
     public GameObject displayHealth;
     Vector2 originalDisplayDimensions;
+    public bool isArc = false;
     Camera cam;
 
     public GameObject interactionContainer;
@@ -39,10 +41,23 @@ public class Placeable : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if(currentHealth <= 0) {
+            Kill();
+        }
         // TODO: Update canvas
         if(displayHealth != null)
         {
             displayHealth.GetComponent<RectTransform>().sizeDelta = new Vector2(originalDisplayDimensions.x * (float)((float)currentHealth / (float)MAX_HEALTH), originalDisplayDimensions.y);
+        }
+    }
+
+    void Kill() {
+        if(isArc) {
+            Destroy(gameObject);    //Destroy the gameobject
+            GameObject.Find("GameManager").GetComponent<PhaseManager>().EnterGameOver();
+            GameObject.Find("Outcome").GetComponent<Text>().text = "DEFEAT";
+        } else {
+            Destroy(gameObject);
         }
     }
 
