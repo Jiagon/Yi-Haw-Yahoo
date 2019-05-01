@@ -14,6 +14,8 @@ public class Placeable : MonoBehaviour {
     Camera cam;
 
     public GameObject interactionContainer;
+    List<float> upgradeList = new List<float> {1.0f,1.1f,1.25f,1.5f,1.75f,1.9f,2.0f,2.5f,3.0f};
+    int currentUpgradeLevel = 0;
 
     public string getId() {
         return id;
@@ -28,6 +30,7 @@ public class Placeable : MonoBehaviour {
 
     protected virtual void Start()
     {
+        MAX_HEALTH = (int)(MAX_HEALTH * upgradeList[currentUpgradeLevel]);
         originalDisplayDimensions = displayHealth.GetComponent<RectTransform>().sizeDelta;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
@@ -91,5 +94,12 @@ public class Placeable : MonoBehaviour {
                 zone.GetComponent<CardZone>().RemoveActiveObject();
             }
         }
+    }
+
+    public void Upgrade() {
+        if(currentUpgradeLevel + 1 < upgradeList.Count) {
+            currentUpgradeLevel++;
+        }
+        MAX_HEALTH = (int)(MAX_HEALTH * upgradeList[currentUpgradeLevel]);
     }
 }
