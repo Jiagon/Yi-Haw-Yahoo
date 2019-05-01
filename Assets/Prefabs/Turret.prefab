@@ -463,7 +463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5536758525442424129
 Transform:
   m_ObjectHideFlags: 0
@@ -506,6 +506,7 @@ MonoBehaviour:
   radius: 5
   projectile: {fileID: 0}
   bottom: {fileID: 2008171769}
+  turnable: {fileID: 5536758525442384235}
   eManager: {fileID: 0}
 --- !u!54 &5536758525442287557
 Rigidbody:

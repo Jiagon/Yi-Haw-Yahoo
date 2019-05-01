@@ -74,10 +74,10 @@ public class Placeable : MonoBehaviour {
             Vector3 v = cam.transform.position - transform.position;
             v.x = v.z = 0.0f;
 
-            displayMaxHealth.transform.LookAt(cam.transform.position - v);
-            displayMaxHealth.transform.Rotate(0, 180, 0);
-            displayHealth.transform.LookAt(cam.transform.position - v);
-            displayHealth.transform.Rotate(0, 180, 0);
+            //displayMaxHealth.transform.LookAt(cam.transform.position - v);
+            //displayMaxHealth.transform.Rotate(0, 180, 0);
+            //displayHealth.transform.LookAt(cam.transform.position - v);
+            //displayHealth.transform.Rotate(0, 180, 0);
         }
     }
     public void ToggleInteractionUI() {

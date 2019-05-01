@@ -9,6 +9,7 @@ public class TestTurret : Placeable
     public float radius = 15f;
     public GameObject projectile;
     public GameObject bottom;
+    public GameObject turnable;
 
     public EnemyManager eManager;
     List<GameObject> enemies;
@@ -31,6 +32,7 @@ public class TestTurret : Placeable
             if (enemies.Count > 0)
             {
                 List<GameObject> dead = new List<GameObject>();
+                FaceTarget(enemies[0]);
                 foreach (GameObject enemy in enemies)
                 {
                     enemy.GetComponent<EnemyScript>().TakeDamage(damage);
@@ -53,5 +55,12 @@ public class TestTurret : Placeable
                 enemies.Add(enemy);
             }
         }
+    }
+
+    void FaceTarget(GameObject target)
+    {
+        Quaternion newRot = Quaternion.LookRotation(target.transform.position - turnable.transform.position);
+        float y = newRot.eulerAngles.y;
+        turnable.transform.eulerAngles = new Vector3(turnable.transform.rotation.x, y, turnable.transform.rotation.z);
     }
 }
