@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TestTurret : Placeable
 {
-    public int damage = 10;
     public float nextAttack = 2f;
     public float radius = 15f;
     public GameObject projectile;
@@ -61,6 +60,6 @@ public class TestTurret : Placeable
     {
         Quaternion newRot = Quaternion.LookRotation(target.transform.position - turnable.transform.position);
         float y = newRot.eulerAngles.y;
-        turnable.transform.eulerAngles = new Vector3(turnable.transform.rotation.x, y, turnable.transform.rotation.z);
+        turnable.transform.localEulerAngles = new Vector3(turnable.transform.localEulerAngles.x, y, turnable.transform.localEulerAngles.z);
     }
 }

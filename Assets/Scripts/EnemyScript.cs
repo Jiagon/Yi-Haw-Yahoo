@@ -124,6 +124,6 @@ public class EnemyScript : MonoBehaviour
     {
         Quaternion newRot = Quaternion.LookRotation(target.transform.position - transform.position);
         float y = newRot.eulerAngles.y;
-        transform.eulerAngles = new Vector3(transform.rotation.x, y, transform.rotation.z);
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, y, transform.localEulerAngles.z);
     }
 }

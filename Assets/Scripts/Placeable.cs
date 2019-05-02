@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Placeable : MonoBehaviour {
+public class Placeable : MonoBehaviour
+{
+    public int damage = 10;
     public string id;
     public int MAX_HEALTH = 100;
     public int currentHealth = 1000;
@@ -12,7 +14,7 @@ public class Placeable : MonoBehaviour {
     Vector2 originalDisplayDimensions;
     public bool isArc = false;
     Camera cam;
-
+    
     public GameObject interactionContainer;
 
     public string getId() {
