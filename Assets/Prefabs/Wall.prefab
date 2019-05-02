@@ -341,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7378357400534408564
 RectTransform:
   m_ObjectHideFlags: 0
@@ -516,7 +516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7378357401006107767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -745,7 +745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7378357401611761405
 Transform:
   m_ObjectHideFlags: 0
@@ -789,6 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a0ec5368794439aafc93d8a8dc1028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   id: Wall
   MAX_HEALTH: 100
   currentHealth: 20

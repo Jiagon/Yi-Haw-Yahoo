@@ -55,10 +55,14 @@ public class PhaseManager : MonoBehaviour
                 for(int i = 0; i < zones.Length; i++) {
                     zones[i].GetComponent<CardZone>().RemoveActiveObject();
                 }
-                //Toggle Stop button to play mode
-                //Toggle Stop button to play mode
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = GetComponent<AudioManager>().placementMusic;
+                GetComponent<AudioSource>().Play();
                 break;
             case PhaseState.Attack:
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = GetComponent<AudioManager>().defendMusic;
+                GetComponent<AudioSource>().Play();
                 ToggleGameObjects("Placeable",false);
                 ToggleGameObjects("placementUI",false);
                 ToggleGameObjects("attackUI",true);
