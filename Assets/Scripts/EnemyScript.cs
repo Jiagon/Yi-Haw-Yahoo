@@ -17,6 +17,8 @@ public class EnemyScript : MonoBehaviour
     float maxVelocity;
     float radius;
     bool canAttack = false;
+    float timer;
+    public float nextAttack = 3f;
     public float attackCoolDownTime = 3f;
 
     // Start is called before the first frame update
@@ -48,7 +50,7 @@ public class EnemyScript : MonoBehaviour
             FindClosePlaceable();
             Move();
         }
-        if(canAttack) {
+        else {
             Attack();
         }
     }
@@ -65,15 +67,20 @@ public class EnemyScript : MonoBehaviour
 
     void Attack()
     {
-        if (attackTarget != null)
+        timer += Time.deltaTime;
+        if (timer > nextAttack)
         {
-            attackTarget.GetComponent<Placeable>().TakeDamage(attack);
-            GetComponent<AudioSource>().Play();
-            if (!attackTarget.GetComponent<Placeable>().IsAlive())
+            timer = 0f;
+            if (attackTarget != null)
             {
-                eManager.RemovePlaceable(attackTarget);
-                attackTarget = null;
-                moving = true;
+                attackTarget.GetComponent<Placeable>().TakeDamage(attack);
+                GetComponent<AudioSource>().Play();
+                if (!attackTarget.GetComponent<Placeable>().IsAlive())
+                {
+                    eManager.RemovePlaceable(attackTarget);
+                    attackTarget = null;
+                    moving = true;
+                }
             }
         }
         canAttack = false;
@@ -117,6 +124,6 @@ public class EnemyScript : MonoBehaviour
     {
         Quaternion newRot = Quaternion.LookRotation(target.transform.position - transform.position);
         float y = newRot.eulerAngles.y;
-        transform.eulerAngles = new Vector3(transform.rotation.x, y, transform.rotation.z);
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, y, transform.localEulerAngles.z);
     }
 }

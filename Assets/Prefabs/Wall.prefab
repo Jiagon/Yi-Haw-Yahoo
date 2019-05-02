@@ -115,7 +115,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8989931979719903760}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7378357401612151925}
+        m_MethodName: Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &2723247671317548915
@@ -330,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7378357400534408564
 RectTransform:
   m_ObjectHideFlags: 0
@@ -505,7 +516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7378357401006107767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -734,7 +745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7378357401611761405
 Transform:
   m_ObjectHideFlags: 0
@@ -779,9 +790,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: Wall
+  MAX_HEALTH: 100
   currentHealth: 20
   displayMaxHealth: {fileID: 7378357401006107768}
   displayHealth: {fileID: 7378357400534408565}
+  isArc: 0
   interactionContainer: {fileID: 5717603223332193914}
 --- !u!54 &828618387
 Rigidbody:

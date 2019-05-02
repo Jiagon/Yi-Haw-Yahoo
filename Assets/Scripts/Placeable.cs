@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Placeable : MonoBehaviour {
+public class Placeable : MonoBehaviour
+{
+    public int damage = 10;
     public string id;
     public int MAX_HEALTH = 100;
     public int currentHealth = 1000;
@@ -12,8 +14,10 @@ public class Placeable : MonoBehaviour {
     Vector2 originalDisplayDimensions;
     public bool isArc = false;
     Camera cam;
-
+    
     public GameObject interactionContainer;
+    List<float> upgradeList = new List<float> {1.0f,1.1f,1.25f,1.5f,1.75f,1.9f,2.0f,2.5f,3.0f};
+    int currentUpgradeLevel = 0;
 
     public string getId() {
         return id;
@@ -28,6 +32,7 @@ public class Placeable : MonoBehaviour {
 
     protected virtual void Start()
     {
+        MAX_HEALTH = (int)(MAX_HEALTH * upgradeList[currentUpgradeLevel]);
         originalDisplayDimensions = displayHealth.GetComponent<RectTransform>().sizeDelta;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
@@ -74,10 +79,10 @@ public class Placeable : MonoBehaviour {
             Vector3 v = cam.transform.position - transform.position;
             v.x = v.z = 0.0f;
 
-            displayMaxHealth.transform.LookAt(cam.transform.position - v);
-            displayMaxHealth.transform.Rotate(0, 180, 0);
-            displayHealth.transform.LookAt(cam.transform.position - v);
-            displayHealth.transform.Rotate(0, 180, 0);
+            //displayMaxHealth.transform.LookAt(cam.transform.position - v);
+            //displayMaxHealth.transform.Rotate(0, 180, 0);
+            //displayHealth.transform.LookAt(cam.transform.position - v);
+            //displayHealth.transform.Rotate(0, 180, 0);
         }
     }
     public void ToggleInteractionUI() {
@@ -91,5 +96,12 @@ public class Placeable : MonoBehaviour {
                 zone.GetComponent<CardZone>().RemoveActiveObject();
             }
         }
+    }
+
+    public void Upgrade() {
+        if(currentUpgradeLevel + 1 < upgradeList.Count) {
+            currentUpgradeLevel++;
+        }
+        MAX_HEALTH = (int)(MAX_HEALTH * upgradeList[currentUpgradeLevel]);
     }
 }
