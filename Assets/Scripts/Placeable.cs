@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class Placeable : MonoBehaviour
 {
+    public int baseDamage = 10;
     public int damage = 10;
     public string id;
+
+    public int baseHealth = 100;
     public int MAX_HEALTH = 100;
     public int currentHealth = 1000;
     public GameObject displayMaxHealth;
@@ -32,7 +35,7 @@ public class Placeable : MonoBehaviour
 
     protected virtual void Start()
     {
-        MAX_HEALTH = (int)(MAX_HEALTH * upgradeList[currentUpgradeLevel]);
+        MAX_HEALTH = (int)(baseHealth * upgradeList[currentUpgradeLevel]);
         originalDisplayDimensions = displayHealth.GetComponent<RectTransform>().sizeDelta;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
@@ -102,6 +105,7 @@ public class Placeable : MonoBehaviour
         if(currentUpgradeLevel + 1 < upgradeList.Count) {
             currentUpgradeLevel++;
         }
-        MAX_HEALTH = (int)(MAX_HEALTH * upgradeList[currentUpgradeLevel]);
+        MAX_HEALTH = (int)(baseHealth * upgradeList[currentUpgradeLevel]);
+        damage = (int)(baseDamage * upgradeList[currentUpgradeLevel]);
     }
 }
