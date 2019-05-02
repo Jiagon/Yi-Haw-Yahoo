@@ -37,7 +37,6 @@ public class TestTurret : Placeable
                 foreach (GameObject enemy in enemies)
                 {
                     enemy.GetComponent<EnemyScript>().TakeDamage(damage);
-                    Debug.Log("Turret is firing");
                     GetComponent<AudioSource>().PlayOneShot(GameObject.Find("GameManager").GetComponent<AudioManager>().laser);
                     if (enemy.GetComponent<EnemyScript>().currentHealth <= 0)
                         dead.Add(enemy);

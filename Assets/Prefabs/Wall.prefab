@@ -775,7 +775,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.14, y: 0.07, z: 0.03}
+  m_Size: {x: 0.17, y: 0.15, z: 0.05}
   m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!114 &7378357401612151925
 MonoBehaviour:
@@ -789,8 +789,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a0ec5368794439aafc93d8a8dc1028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseDamage: 0
   damage: 10
   id: Wall
+  baseHealth: 100
   MAX_HEALTH: 100
   currentHealth: 20
   displayMaxHealth: {fileID: 7378357401006107768}
