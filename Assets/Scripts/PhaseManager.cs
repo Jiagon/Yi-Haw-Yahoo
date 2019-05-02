@@ -23,9 +23,9 @@ public class PhaseManager : MonoBehaviour
      GameObject button_last;
 
     void Start(){
-        SetGameState(PhaseState.Placement);
         eManager = GetComponent<EnemyManager>();
         pManager = GetComponent<PlaceableManager>();
+        SetGameState(PhaseState.Placement);
     }
 
     public PhaseState GetCurrentState() {
@@ -39,7 +39,7 @@ public class PhaseManager : MonoBehaviour
         SetGameState(PhaseState.GameOver);
     }
     public void EnterPlacable() {
-        eManager.ResetEnemies(15);
+        eManager.ResetEnemies((uint)eManager.totalEnemies);
         SetGameState(PhaseState.Placement);
     }
     public void SetGameState(PhaseState phase) {
