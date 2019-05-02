@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class EnemyManager : MonoBehaviour
             }
         }
         if(enemiesKilled == totalEnemies) {
+            GameObject.Find("Outcome").GetComponent<Text>().text = "VICTORY";
             phaseManager.EnterGameOver();
         }
     }

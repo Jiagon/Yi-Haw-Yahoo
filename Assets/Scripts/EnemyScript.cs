@@ -74,7 +74,7 @@ public class EnemyScript : MonoBehaviour
             if (attackTarget != null)
             {
                 attackTarget.GetComponent<Placeable>().TakeDamage(attack);
-                GetComponent<AudioSource>().Play();
+                GetComponent<AudioSource>().PlayOneShot(GameObject.Find("GameManager").GetComponent<AudioManager>().laser2);
                 if (!attackTarget.GetComponent<Placeable>().IsAlive())
                 {
                     eManager.RemovePlaceable(attackTarget);
@@ -84,12 +84,6 @@ public class EnemyScript : MonoBehaviour
             }
         }
         canAttack = false;
-        StartCoroutine(AttackCooldown());
-    }
-
-    IEnumerator AttackCooldown() {
-        yield return new WaitForSeconds(attackCoolDownTime);
-        canAttack = true;
     }
 
     public void TakeDamage(int damage)
