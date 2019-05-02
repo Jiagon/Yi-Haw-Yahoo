@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Placeable : MonoBehaviour
 {
-    public int baseDamage = 10;
-    public int damage = 10;
+    public int baseDamage = 0;
+    public int damage = 0;
     public string id;
 
     public int baseHealth = 100;

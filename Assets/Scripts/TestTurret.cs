@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestTurret : Placeable
 {
     public float nextAttack = 2f;
-    public float radius = 15f;
+    public float radius = 20f;
     public GameObject projectile;
     public GameObject bottom;
     public GameObject turnable;
@@ -17,6 +17,8 @@ public class TestTurret : Placeable
     protected override void Start()
     {
         base.Start();
+        baseDamage = 10;
+        damage = baseDamage;
         enemies = new List<GameObject>();
     }
 
@@ -59,7 +61,7 @@ public class TestTurret : Placeable
     void FaceTarget(GameObject target)
     {
         Quaternion newRot = Quaternion.LookRotation(target.transform.position - turnable.transform.position);
-        float y = newRot.eulerAngles.y;
+        float y = newRot.eulerAngles.y - (Mathf.PI / 2);
         turnable.transform.localEulerAngles = new Vector3(turnable.transform.localEulerAngles.x, y, turnable.transform.localEulerAngles.z);
     }
 }
