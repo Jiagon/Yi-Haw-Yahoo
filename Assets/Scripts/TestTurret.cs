@@ -26,6 +26,8 @@ public class TestTurret : Placeable
     {
         base.Update();
         timer += Time.deltaTime;
+        if(enemies.Count > 0)
+            FaceTarget(enemies[0]);
         if (timer > nextAttack)
         {
             timer = 0f;
@@ -33,7 +35,6 @@ public class TestTurret : Placeable
             if (enemies.Count > 0)
             {
                 List<GameObject> dead = new List<GameObject>();
-                FaceTarget(enemies[0]);
                 foreach (GameObject enemy in enemies)
                 {
                     enemy.GetComponent<EnemyScript>().TakeDamage(damage);
@@ -62,7 +63,7 @@ public class TestTurret : Placeable
     void FaceTarget(GameObject target)
     {
         Quaternion newRot = Quaternion.LookRotation(target.transform.position - turnable.transform.position);
-        float y = newRot.eulerAngles.y - (Mathf.PI / 2);
+        float y = newRot.eulerAngles.y - transform.parent.transform.rotation.y;
         turnable.transform.localEulerAngles = new Vector3(turnable.transform.localEulerAngles.x, y, turnable.transform.localEulerAngles.z);
     }
 }

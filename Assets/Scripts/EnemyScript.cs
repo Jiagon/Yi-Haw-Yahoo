@@ -91,7 +91,8 @@ public class EnemyScript : MonoBehaviour
         currentHealth -= damage;
         // TODO: Update canvas
         if(currentHealth <= 0) {
-            GameObject.Find("GameManager").GetComponent<EnemyManager>().KillEnemy();
+            eManager.KillEnemy();
+            eManager.RemoveEnemy(this.gameObject);
             Destroy(gameObject);
         }
 
