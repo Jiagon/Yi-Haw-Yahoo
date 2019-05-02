@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip placementMusic;
     public AudioClip defendMusic;
     public AudioClip spinDown;
+    public AudioClip laser;
+    public AudioClip laser2;
 
 
 }
