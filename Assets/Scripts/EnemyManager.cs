@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject table;
     PlaceableManager placeManager;
     int enemiesKilled = 0;
-    int totalEnemies = 0;
+    public int totalEnemies = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +38,10 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(enemies.Count == 0 && numEnemies == 0) {
+            phaseManager.EnterGameOver();
+            GameObject.Find("Outcome").GetComponent<Text>().text = "VICTORY";
+        }
         // While there are still enemies to place on the screen, spawn in an enemy every 1 - 3 seconds
         if (phaseManager.GetCurrentState() == PhaseState.Attack && numEnemies > 0)
         {
@@ -49,10 +53,6 @@ public class EnemyManager : MonoBehaviour
                 --numEnemies;
                 nextSpawn = Random.Range(1f, 3f);
             }
-        }
-        if(enemiesKilled == totalEnemies) {
-            GameObject.Find("Outcome").GetComponent<Text>().text = "VICTORY";
-            phaseManager.EnterGameOver();
         }
     }
 
