@@ -41,6 +41,7 @@ public class EnemyManager : MonoBehaviour
         if(enemies.Count == 0 && numEnemies == 0) {
             phaseManager.EnterGameOver();
             GameObject.Find("Outcome").GetComponent<Text>().text = "VICTORY";
+            FindObjectOfType<SingletonScript>().ChangeUpgradeNum(3);
         }
         // While there are still enemies to place on the screen, spawn in an enemy every 1 - 3 seconds
         if (phaseManager.GetCurrentState() == PhaseState.Attack && numEnemies > 0)

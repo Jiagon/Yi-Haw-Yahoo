@@ -101,10 +101,14 @@ public class Placeable : MonoBehaviour
         }
     }
 
-    public void Upgrade() {
-        if(currentUpgradeLevel + 1 < upgradeList.Count) {
-            currentUpgradeLevel++;
+    public void Upgrade()
+    {
+        SingletonScript s = FindObjectOfType<SingletonScript>();
+        if (currentUpgradeLevel + 1 >= upgradeList.Count || s.upgrades < 1) {
+            return;
         }
+        s.ChangeUpgradeNum(s.upgrades - 1);
+        currentUpgradeLevel++;
         MAX_HEALTH = (int)(baseHealth * upgradeList[currentUpgradeLevel]);
         damage = (int)(baseDamage * upgradeList[currentUpgradeLevel]);
     }

@@ -11,13 +11,11 @@ public class LevelManager : MonoBehaviour
     public int numOfCardZones;  //How many zones we have in this level (For UI purposes)
     public int activeCardZones = 0; //Number of card zones active with an object placed in them.
     //public Text cardsLeftText;
-    public int pointsAvailable = 0;
-    public Text pointsAvailableText;
     void Start() {
         cardZones = GameObject.FindObjectsOfType<CardZone>();
         numOfCardZones = cardZones.Length;
         //cardsLeftText.text = activeCardZones.ToString() + "/" + numOfCardZones.ToString();
-        pointsAvailableText.text = pointsAvailable.ToString();
+        FindObjectOfType<SingletonScript>().ResetComponents();
     }
 
     public void UpdateIdList(string id) {
