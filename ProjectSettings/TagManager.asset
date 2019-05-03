@@ -17,6 +17,7 @@ TagManager:
   - tutorialUI
   - tutorial_2
   - CardZone
+  - interactionUI
   layers:
   - Default
   - TransparentFX
