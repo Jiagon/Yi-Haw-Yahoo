@@ -64,6 +64,7 @@ public class PhaseManager : MonoBehaviour
                 GetComponent<AudioSource>().clip = GetComponent<AudioManager>().defendMusic;
                 GetComponent<AudioSource>().Play();
                 ToggleGameObjects("Placeable",false);
+                ToggleGameObjects("interactionUI", false);
                 ToggleGameObjects("placementUI",false);
                 ToggleGameObjects("attackUI",true);
                 break;
