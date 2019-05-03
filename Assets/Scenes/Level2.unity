@@ -1549,7 +1549,7 @@ PrefabInstance:
     - target: {fileID: 4694450867196271470, guid: 344d44e2e7e3a68418ba689d026826c9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4694450867196271465, guid: 344d44e2e7e3a68418ba689d026826c9,
         type: 3}
@@ -1720,6 +1720,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694450869074213236, guid: 344d44e2e7e3a68418ba689d026826c9,
+        type: 3}
+      propertyPath: m_Text
+      value: Level 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 344d44e2e7e3a68418ba689d026826c9, type: 3}
@@ -2204,8 +2209,6 @@ MonoBehaviour:
   activeIds: []
   numOfCardZones: 0
   activeCardZones: 0
-  pointsAvailable: 0
-  pointsAvailableText: {fileID: 1615820798}
 --- !u!114 &925143893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2231,7 +2234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
-  numEnemies: 1
+  numEnemies: 20
   phaseManager: {fileID: 0}
   enemyPrefab: {fileID: 605703421467649894, guid: bbbebd4b93d0f42f791b22832ce7b3f4,
     type: 3}
@@ -3586,18 +3589,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1615820796}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1615820798 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8009817523659413, guid: c1b37819a276f6c40b67836ad3089757,
-    type: 3}
-  m_PrefabInstance: {fileID: 1615820796}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &1617251829
 Mesh:
   m_ObjectHideFlags: 0
