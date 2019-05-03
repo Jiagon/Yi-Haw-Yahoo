@@ -63,7 +63,7 @@ public class TestTurret : Placeable
     void FaceTarget(GameObject target)
     {
         Quaternion newRot = Quaternion.LookRotation(target.transform.position - turnable.transform.position);
-        float y = newRot.eulerAngles.y - (transform.parent.transform.rotation.y / 2f);
-        turnable.transform.localEulerAngles = new Vector3(turnable.transform.localEulerAngles.x, y, turnable.transform.localEulerAngles.z);
+        float y = newRot.eulerAngles.y - transform.parent.transform.rotation.y;
+        turnable.transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, y, transform.localEulerAngles.z);
     }
 }

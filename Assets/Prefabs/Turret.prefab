@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 3315816715324264133}
   m_Layer: 5
   m_Name: interactionContainer
-  m_TagString: Untagged
+  m_TagString: interactionUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -495,8 +495,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8c8e6095ea04fb6a6deb43dd954497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseDamage: 0
   damage: 2
   id: 
+  baseHealth: 100
   MAX_HEALTH: 1000
   currentHealth: 1000
   displayMaxHealth: {fileID: 741495997}
